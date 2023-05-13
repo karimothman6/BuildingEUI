@@ -3,7 +3,7 @@ import joblib
 from sklearn.ensemble import RandomForestRegressor
 import pandas as pd
 
-model=joblib.load("C:/Users/othma/Karim/DS/Projects/Python/Building/forest_model.sav")
+model=joblib.load("forest_model.sav")
 
 st.title("Application")
 
