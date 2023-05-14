@@ -31,7 +31,7 @@ st.sidebar.title("Massing")
 tarea=st.sidebar.number_input("Total Area",3700,94000)
 pdepth=st.sidebar.slider("Plate Depth",10,50)
 plength=st.sidebar.slider("Plate Length",40,125)
-fheight=st.sidebar.slider("Floor Height",3,6)
+fheight=st.sidebar.slider("Floor Height",3.0,6.0)
 
 # Add a heading and divider for the third section
 st.sidebar.markdown("---")
@@ -55,7 +55,7 @@ coolcoil=st.sidebar.selectbox('Cooling Coil',('Electric','DX(Single Speed)','DX(
 
 # Add a heading for the fifth section
 st.sidebar.markdown("---")
-st.title("EUI (kWh/m2):")
+st.title("EUI & Cost:")
 
 # Add a card to display the result
 result_card = st.empty()
@@ -68,7 +68,8 @@ def update_result():
 
 
     # Display metric
-    st.metric("EUI:", "{:.4f}".format(float(EUI)), "{:.4f}".format(float(delta)))
+    st.metric("EUI (kWh/m2):", "{:.4f}".format(float(EUI)), "{:.4f}".format(float(delta)))
+    st.metric("Cost of Energy per year (18¢ per kWh):","{:,} $".format(int(EUI*.18*tarea)),"{:,} $".format(int(delta*.18*tarea)))
     
     # Update previous input value
     st.session_state.prev_EUI = EUI
@@ -194,3 +195,6 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+
+    
