@@ -39,17 +39,17 @@ st.sidebar.title("Facade")
 
 # Add one slider and three dropdown menus for the third section
 wwr=st.sidebar.slider("WWR (Window to Wall Ratio)",25,90)
-solar=st.sidebar.selectbox('Solar Design',('Bad','Typical','Good'))
+solar=st.sidebar.selectbox('Solar Design',('Bad','Typical','Good'),help="Bad: N-S Orientation.All glazing on E/W \n \n Typical: E-W Orientation.Glazing evenly distributed \n \n Good: E-W Orientation. All glazing on N/W")
 envelope=st.sidebar.selectbox('Envelope Quality',('Baseline', 'HighPerformance','UltraPerformance'))
-lpd=st.sidebar.selectbox('LPD (Lightinig Power Density)',('Base', 'Better','Best'))
-
+lpd=st.sidebar.selectbox('LPD (Lightinig Power Density)',('Base', 'Better','Best'),help="Base: Baseline LPD from DOE Reference Building \n \n Better: 30% reduction from baseline \n \n Best: 60% reduction from baseline")
+	
 # Add a heading and divider for the fourth section
 st.sidebar.markdown("---")
 st.sidebar.title("HVAC")
 
 # Add four dropdown menus for the fourth section
-hvac=st.sidebar.selectbox('HVAC Setting',('Baseline', 'Good', 'Great', 'Ultra'))
-setpoint=st.sidebar.selectbox('Setpoint Setting',('Baseline', 'Expanded'))
+hvac=st.sidebar.selectbox('HVAC Setting',('Baseline', 'Good', 'Great', 'Ultra'),help="Baseline: Baseline HVAC from DOE Reference Building \n \n Good: 20% increase in COP from baseline \n \n Great: 35% increase in COP from baseline \n \n Ultra: 50% increase in COP from baseline")
+setpoint=st.sidebar.selectbox('Setpoint Setting',('Baseline', 'Expanded'),help="Baseline: Default settings for program and system \n \n Expanded: Cooling +1.67 °C, Heating -1.67 °C")
 heatcoil=st.sidebar.selectbox('Heating Coil',('Water', 'Electric','DX(Single Speed)'))
 coolcoil=st.sidebar.selectbox('Cooling Coil',('Electric','DX(Single Speed)','DX(Double Speed)'))
 
